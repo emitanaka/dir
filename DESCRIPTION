@@ -8,11 +8,16 @@ Authors@R:
            email = "dr.emi.tanaka@gmail.com",
            comment = c(ORCID = "0000-0002-1455-259X"))
 Description: What the package does (one paragraph).
-License: GPL3 + file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    htmltools
+    htmltools,
+    magrittr
+Suggests:
+    knitr
+URL: https://github.com/emitanaka/dir
+BugReports: https://github.com/emitanaka/dir/issues
