@@ -9,6 +9,10 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
+Some HTML elements do not show in GitHub markdown (due to it not
+rendering any css and javascript). For demonstration, look at the output
+at <http://dir.emitanaka.org> instead.
+
 ``` r
 dir::finder()
 ```
@@ -22,6 +26,12 @@ dir::finder()
 <i class="fas fa-folder-open"></i> .
 
 <ul>
+
+<li>
+
+<i class="fas fa-file-alt"></i> \_pkgdown.yml
+
+</li>
 
 <li>
 
