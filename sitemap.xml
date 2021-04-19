@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://emitanaka.org/dir/index.html</loc>
+  </url>
+  <url>
+    <loc>http://emitanaka.org/dir/reference/dir-package.html</loc>
+  </url>
+  <url>
+    <loc>http://emitanaka.org/dir/reference/finder.html</loc>
+  </url>
+  <url>
+    <loc>http://emitanaka.org/dir/reference/is_file.html</loc>
+  </url>
+  <url>
+    <loc>http://emitanaka.org/dir/reference/is_finder.html</loc>
+  </url>
+  <url>
+    <loc>http://emitanaka.org/dir/reference/pipe.html</loc>
+  </url>
+</urlset>
