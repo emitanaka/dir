@@ -1,1 +1,15 @@
-url: http://emitanaka.org/dir
+url: https://dir.emitanaka.org=
+
+home:
+  title: "dir - an R-package to make html directory listing"
+  description: Tools to make collapsible folder listings.
+
+template:
+  opengraph:
+    twitter:
+      creator: "@statsgen"
+      site: "@MonashEBS"
+      card: summary_large_image
+  params:
+    bootswatch: united
+    ganalytics: G-WE2DT4Q66Q
