@@ -22,11 +22,9 @@ finder <- function(x = ".", class = NULL, max = Inf, show_hidden = FALSE, open =
                      src = x)
     attributes(out[[1]]) <- c(attributes(out[[1]]),
                               list(type = ifelse(is_file(x), "file", "folder"),
-                                   icon = ifelse(is_file(x),
-                                                 determine_file_icon(x),
-                                                 ifelse(open,
-                                                        "<i class='fas fa-folder-open'></i>",
-                                                        "<i class='fas fa-folder'></i>"))))
+                                   icon = if(is_file(x)) determine_file_icon(x) else
+                                                 if(open) tags$i(class='fas fa-folder-open') else
+                                                        tags$i(class='fas fa-folder')))
     out
   } else if(is_finder(x)){
     x
@@ -41,25 +39,25 @@ finder <- function(x = ".", class = NULL, max = Inf, show_hidden = FALSE, open =
 # @param base Directory path name
 # @param i The level of depth.
 # @param max Maximum level of depth to go with respective to the `base`.
-html_finder_constructor <- function(.finder, i = 0, max = Inf) {
-  if(i >= max || is.na(.finder)) return(NULL)
+html_finder_constructor <- function(.finder, i = 0, max = Inf, name = NULL) {
+  if(i >= max) return(NULL)
+  if(i==0 && is_finder(.finder)) {
+    name <- name %||% attr(.finder, "src")
+    .finder <- .finder[[1]]
+  }
   #browser()
-  res <- lapply(seq_along(.finder), function(j) {
-    x <- .finder[[j]]
-    nm <- names(.finder)[j]
-    if(is_file(.finder) || i == (max - 1)) {
-      out <- tags$li(get_icon(x), nm)
-    } else {
-      out <- tags$li(get_icon(x), nm,
-                     tags$ul(
-                       tagList(lapply(x,
-                                      function(.x) html_finder_constructor(.x, i = i + 1, max = max)))
-                     ))
-    out
-  }})
-  if(i==0) return(tags$ul(class = "directory-list",
-                          res))
-  return(res)
+  if(is_file(.finder) || i == (max - 1)) {
+    return(tags$li(get_icon(.finder), name))
+  }
+  nms <- names(.finder)
+  tags$li(get_icon(.finder), name,
+          tags$ul(
+            tagList(lapply(seq_along(.finder),
+                           function(j) html_finder_constructor(.finder[[j]],
+                                                               i = i + 1,
+                                                               max = max,
+                                                               name = nms[j])))
+          ))
 }
 
 # # @param base Directory path name

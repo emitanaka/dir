@@ -29,7 +29,7 @@ set_list <- function(x, type, content, open = NULL) {
   attr(out, "type") <- type
   if(type=="folder") {
     attr(out, "open") <- open
-    attr(out, "icon") <- ifelse(open, "<i class='fas fa-folder-open'></i>", "<i class='fas fa-folder'></i>")
+    attr(out, "icon") <- if(open) tags$i(class='fas fa-folder-open') else tags$i(class='fas fa-folder')
   } else if(type=="file") {
     attr(out, "icon") <- determine_file_icon(x)
   }
@@ -39,29 +39,30 @@ set_list <- function(x, type, content, open = NULL) {
 determine_file_icon <- function(x) {
   ext <- get_file_ext(x)
   switch(tolower(ext),
-         "pdf" = '<i class="fas fa-file-pdf"></i>',
+         "pdf" = tags$i(class="fas fa-file-pdf"),
          "doc" = ,
-         "docx" = '<i class="fas fa-file-word"></i>',
+         "docx" = tags$i(class="fas fa-file-word"),
          "mp4" = ,
          "mov" = ,
          "wmv" = ,
          "flv" = ,
          "avi" = ,
-         "mkv" = '<i class="fas fa-file-video"></i>',
+         "mkv" = tags$i(class="fas fa-file-video"),
          "ppt" = ,
-         "pptx" = '<i class="fas fa-file-powerpoint"></i>',
+         "pptx" = tags$i(class="fas fa-file-powerpoint"),
          "jpg" = ,
          "png" = ,
-         "jpeg" = '<i class="fas fa-file-image"></i>',
+         "jpeg" = tags$i(class="fas fa-file-image"),
          "xls" = ,
-         "xlsx" = '<i class="fas fa-file-image"></i>',
-         "rmd" = '<i class="fas fa-file-code"></i>',
-         "r" = '<i class="fab fa-r-project"></i>',
-         "py" = '<i class="fab fa-python"></i>',
-         "mp3" = '<i class="fas fa-file-audio"></i>',
-         "zip" = '<i class="fas fa-file-archive"></i>',
-         "csv" = '<i class="fas fa-file-csv"></i>',
-         '<i class="fas fa-file-alt"></i>')
+         "xlsx" = tags$i(class="fas fa-file-image"),
+         "rmd" = tags$i(class="fas fa-file-code"),
+         "r" = tags$i(class="fab fa-r-project"),
+         "py" = tags$i(class="fab fa-python"),
+         "js" = tags$i(class="fab fa-js"),
+         "mp3" = tags$i(class="fas fa-file-audio"),
+         "zip" = tags$i(class="fas fa-file-archive"),
+         "csv" = tags$i(class="fas fa-file-csv"),
+         tags$i(class = "fas fa-file-alt"))
 }
 
 # from tools::file_ext

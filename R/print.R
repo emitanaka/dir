@@ -1,7 +1,7 @@
 
 #' @export
 print.finder <- function(x, ...) {
-  tmpdir <- tempfile("finder")
+  tmpdir <- tempfile("finder-")
   dir.create(tmpdir)
   file.copy(system.file("dir.js", package = "dir"),
             file.path(tmpdir, "dir.js"))
@@ -16,10 +16,12 @@ print.finder <- function(x, ...) {
 
 
   out <- div(
-    class = c(class, "directory"),
-    html_finder_constructor(x),
+    class = "directory",
+    tags$ul(class = "directory-list",
+            html_finder_constructor(x)),
     htmltools::includeScript(file.path(tmpdir, "dir.js"))
   )
+  #browser()
 
   htmltools::htmlDependencies(out) <- htmlDependency(
     "dir",
@@ -29,5 +31,11 @@ print.finder <- function(x, ...) {
     stylesheet = c("dir.css", "fontawesome/css/all.min.css"),
     all_files = TRUE
   )
-  browsable(out)
+  if(interactive()) print(browsable(out))
+  print(out)
+}
+
+#' @importFrom knitr knit_print
+knit_print.finder <- function(x, ...) {
+  x
 }

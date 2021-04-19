@@ -1,5 +1,5 @@
 Package: dir
-Title: What the Package Does (One Line, Title Case)
+Title: Make HTML directory listing
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emi",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "dr.emi.tanaka@gmail.com",
            comment = c(ORCID = "0000-0002-1455-259X"))
-Description: What the package does (one paragraph).
+Description: Tools to make it easier to make a pretty directory listing with collapsible folders.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
@@ -19,5 +19,5 @@ Imports:
     magrittr
 Suggests:
     knitr
-URL: https://github.com/emitanaka/dir
+URL: http://emitanaka.org/dir, https://github.com/emitanaka/dir
 BugReports: https://github.com/emitanaka/dir/issues

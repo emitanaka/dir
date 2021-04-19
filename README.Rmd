@@ -19,9 +19,9 @@ knitr::opts_chunk$set(
 # dir
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-```{r}
-dir::ls("./")
+```{r, results="asis"}
+dir::finder()
 ```
-
