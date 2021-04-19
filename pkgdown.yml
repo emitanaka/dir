@@ -2,8 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-04-19T00:54Z
+last_built: 2021-04-19T01:07Z
 urls:
-  reference: http://emitanaka.org/dir/reference
-  article: http://emitanaka.org/dir/articles
+  reference: https://dir.emitanaka.org=/reference
+  article: https://dir.emitanaka.org=/articles
 
