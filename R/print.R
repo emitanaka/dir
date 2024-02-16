@@ -57,10 +57,4 @@ html_listing_constructor <- function(listing, i = 0, recurse = Inf, name = NULL)
           ))
 }
 
-#' @importFrom knitr knit_print
-#' @export
-knit_print.listing <- function(x, ...) {
-  print(x)
-  x
-}
 
