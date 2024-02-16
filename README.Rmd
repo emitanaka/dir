@@ -25,5 +25,5 @@ knitr::opts_chunk$set(
 Some HTML elements do not show in GitHub markdown (due to it not rendering any css and javascript). For demonstration, look at the output at http://dir.emitanaka.org instead.
 
 ```{r, results="asis"}
-dir::finder()
+dir::listing()
 ```
