@@ -20,6 +20,7 @@ get_icon <- function(x) {
 #' Test if given object is finder class
 #'
 #' @param x An object.
+#' @return A logical value.
 #' @export
 is_listing <- function(x) {
   inherits(x, "listing")
@@ -71,3 +72,5 @@ get_file_ext <- function(x) {
   pos <- regexpr("\\.([[:alnum:]]+)$", x)
   ifelse(pos > -1L, substring(x, pos + 1L), "")
 }
+
+

@@ -15,13 +15,17 @@ listing(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE)
 
 \item{open}{Whether the folders should be open by default.}
 }
+\value{
+A list of files and folders.
+}
 \description{
 Create a HTML directory listing that is best used
 for R Markdown documents with HTML outputs, including
 for HTML presentations.
 }
-\details{
+\examples{
 \dontrun{
 listing(system.file(package = "dir"))
 }
+
 }

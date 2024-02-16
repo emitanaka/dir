@@ -9,6 +9,9 @@ is_listing(x)
 \arguments{
 \item{x}{An object.}
 }
+\value{
+A logical value.
+}
 \description{
 Test if given object is finder class
 }

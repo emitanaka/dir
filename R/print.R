@@ -18,15 +18,14 @@ print.listing <- function(x, ...) {
   out <- htmltools::div(
     class = "directory",
     tags$ul(class = "directory-list",
-            html_listing_constructor(x, recurse = attr(x, "recurse"))),
-    htmltools::includeScript(file.path(tmpdir, "dir.js"))
+            html_listing_constructor(x, recurse = attr(x, "recurse")))
   )
 
   htmltools::htmlDependencies(out) <- htmltools::htmlDependency(
     "dir",
     version = utils::packageVersion("dir"),
     src = tmpdir,
-    script = "jQuery/jquery-3.6.0.min.js",
+    script = c("jQuery/jquery-3.6.0.min.js", "dir.js"),
     stylesheet = c("dir.css", "fontawesome/css/all.min.css"),
     all_files = TRUE
   )
@@ -39,13 +38,12 @@ print.listing <- function(x, ...) {
 # @param base Directory path name
 # @param i The level of depth.
 # @param recurse maximum level of depth to go with respective to the `base`.
-html_listing_constructor <- function(listing, i = 1, recurse = Inf, name = NULL) {
-  if(i >= recurse) return(NULL)
+html_listing_constructor <- function(listing, i = 0, recurse = Inf, name = NULL) {
   if(i==0 && is_listing(listing)) {
     name <- name %||% attr(listing, "src")
     listing <- listing[[1]]
   }
-  if(is_file(listing) || i == (recurse - 1)) {
+  if(is_file(listing) || i == recurse) {
     return(tags$li(get_icon(listing), name))
   }
   nms <- names(listing)
@@ -59,8 +57,10 @@ html_listing_constructor <- function(listing, i = 1, recurse = Inf, name = NULL)
           ))
 }
 
-
 #' @importFrom knitr knit_print
+#' @export
 knit_print.listing <- function(x, ...) {
+  print(x)
   x
 }
+
