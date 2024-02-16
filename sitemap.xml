@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dir.emitanaka.org=/404.html</loc>
+  </url>
+  <url>
+    <loc>https://dir.emitanaka.org=/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dir.emitanaka.org=/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://dir.emitanaka.org=/authors.html</loc>
+  </url>
+  <url>
     <loc>https://dir.emitanaka.org=/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dir.emitanaka.org=/news/index.html</loc>
   </url>
   <url>
     <loc>https://dir.emitanaka.org=/reference/dir-package.html</loc>
   </url>
   <url>
-    <loc>https://dir.emitanaka.org=/reference/finder.html</loc>
+    <loc>https://dir.emitanaka.org=/reference/index.html</loc>
   </url>
   <url>
     <loc>https://dir.emitanaka.org=/reference/is_file.html</loc>
   </url>
   <url>
-    <loc>https://dir.emitanaka.org=/reference/is_finder.html</loc>
+    <loc>https://dir.emitanaka.org=/reference/is_listing.html</loc>
+  </url>
+  <url>
+    <loc>https://dir.emitanaka.org=/reference/listing.html</loc>
   </url>
   <url>
     <loc>https://dir.emitanaka.org=/reference/pipe.html</loc>
