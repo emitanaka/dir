@@ -19,5 +19,5 @@ Imports:
     magrittr
 Suggests:
     knitr
-URL: https://dir.emitanaka.org, https://github.com/emitanaka/dir
+URL: https://emitanaka.org/dir/, https://github.com/emitanaka/dir
 BugReports: https://github.com/emitanaka/dir/issues

@@ -18,17 +18,19 @@ print.listing <- function(x, ...) {
   out <- htmltools::div(
     class = "directory",
     tags$ul(class = "directory-list",
-            html_listing_constructor(x, recurse = attr(x, "recurse")))
-  )
+            html_listing_constructor(x, recurse = attr(x, "recurse"))
+  ))
 
-  htmltools::htmlDependencies(out) <- htmltools::htmlDependency(
+  deps <- htmltools::htmlDependency(
     "dir",
     version = utils::packageVersion("dir"),
     src = tmpdir,
-    script = c("jQuery/jquery-3.6.0.min.js", "dir.js"),
+    script = c("jQuery/jquery-3.6.0.min.js"),
     stylesheet = c("dir.css", "fontawesome/css/all.min.css"),
     all_files = TRUE
   )
+  #htmltools::htmlDependencies(out) <- deps
+  out <- tagList(deps, out, htmltools::includeScript(paste0(tmpdir, "/dir.js")))
   if(interactive()) print(htmltools::browsable(out))
   print(out)
 }
