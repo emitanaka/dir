@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 Some HTML elements do not show in GitHub markdown (due to it not
 rendering any css and javascript). For demonstration, look at the output
-at <http://dir.emitanaka.org> instead.
+at <https://dir.emitanaka.org> instead.
 
 ``` r
 dir::listing()
@@ -28,6 +28,9 @@ dir::listing()
 <ul>
 <li>
 <i class="fas fa-file-alt"></i> \_pkgdown.yml
+</li>
+<li>
+<i class="fas fa-file-alt"></i> cran-comments.md
 </li>
 <li>
 <i class="fas fa-file-alt"></i> DESCRIPTION
@@ -148,6 +151,9 @@ dir::listing()
 </li>
 <li>
 <i class="fas fa-file-alt"></i> NAMESPACE
+</li>
+<li>
+<i class="fas fa-file-alt"></i> NEWS.md
 </li>
 <li>
 <i class="fas fa-folder-open"></i> R
