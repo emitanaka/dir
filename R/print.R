@@ -1,7 +1,7 @@
 
 #' @export
-print.finder <- function(x, ...) {
-  tmpdir <- tempfile("finder-")
+print.listing <- function(x, ...) {
+  tmpdir <- tempfile("listing-")
   dir.create(tmpdir)
   file.copy(system.file("dir.js", package = "dir"),
             file.path(tmpdir, "dir.js"))
@@ -15,15 +15,14 @@ print.finder <- function(x, ...) {
   css_file <- file.path(tmpdir, "dir.css")
 
 
-  out <- div(
+  out <- htmltools::div(
     class = "directory",
     tags$ul(class = "directory-list",
-            html_finder_constructor(x)),
+            html_listing_constructor(x, recurse = attr(x, "recurse"))),
     htmltools::includeScript(file.path(tmpdir, "dir.js"))
   )
-  #browser()
 
-  htmltools::htmlDependencies(out) <- htmlDependency(
+  htmltools::htmlDependencies(out) <- htmltools::htmlDependency(
     "dir",
     version = utils::packageVersion("dir"),
     src = tmpdir,
@@ -31,11 +30,37 @@ print.finder <- function(x, ...) {
     stylesheet = c("dir.css", "fontawesome/css/all.min.css"),
     all_files = TRUE
   )
-  if(interactive()) print(browsable(out))
+  if(interactive()) print(htmltools::browsable(out))
   print(out)
 }
 
+
+
+# @param base Directory path name
+# @param i The level of depth.
+# @param recurse maximum level of depth to go with respective to the `base`.
+html_listing_constructor <- function(listing, i = 1, recurse = Inf, name = NULL) {
+  if(i >= recurse) return(NULL)
+  if(i==0 && is_listing(listing)) {
+    name <- name %||% attr(listing, "src")
+    listing <- listing[[1]]
+  }
+  if(is_file(listing) || i == (recurse - 1)) {
+    return(tags$li(get_icon(listing), name))
+  }
+  nms <- names(listing)
+  tags$li(get_icon(listing), name,
+          tags$ul(
+            tagList(lapply(seq_along(listing),
+                           function(j) html_listing_constructor(listing[[j]],
+                                                                i = i + 1,
+                                                                recurse = recurse,
+                                                                name = nms[j])))
+          ))
+}
+
+
 #' @importFrom knitr knit_print
-knit_print.finder <- function(x, ...) {
+knit_print.listing <- function(x, ...) {
   x
 }

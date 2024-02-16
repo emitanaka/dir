@@ -4,9 +4,18 @@
 \name{dir-package}
 \alias{dir}
 \alias{dir-package}
-\title{dir: What the Package Does (One Line, Title Case)}
+\title{dir: Make HTML directory listing}
 \description{
-What the package does (one paragraph).
+Tools to make it easier to make a pretty directory listing with collapsible folders.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://emitanaka.org/dir}
+  \item \url{https://github.com/emitanaka/dir}
+  \item Report bugs at \url{https://github.com/emitanaka/dir/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Emi Tanaka \email{dr.emi.tanaka@gmail.com} (\href{https://orcid.org/0000-0002-1455-259X}{ORCID})

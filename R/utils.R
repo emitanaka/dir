@@ -7,7 +7,8 @@
 #' @export
 is_file <- function(path) {
   if(inherits(path, "list") || is.na(path)) {
-    return(attr(path, "type")=="file")
+    type <- attr(path, "type") %||% "not_found"
+    return(type=="file")
   }
   file_test("-f", path)
 }
@@ -20,8 +21,8 @@ get_icon <- function(x) {
 #'
 #' @param x An object.
 #' @export
-is_finder <- function(x) {
-  inherits(x, "finder")
+is_listing <- function(x) {
+  inherits(x, "listing")
 }
 
 set_list <- function(x, type, content, open = NULL) {
