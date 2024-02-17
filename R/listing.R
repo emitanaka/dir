@@ -32,7 +32,7 @@ listing <- function(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE
 
   out_html <- htmltools::div(
     class = "directory",
-    tags$ul(class = "directory-list",
+    tags$ul(class = paste0("directory-list", if(!open) " directory-close"),
             html_listing_constructor(out, recurse = recurse)
     )) |>
     as.character()
