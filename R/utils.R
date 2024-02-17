@@ -5,7 +5,7 @@ is_file <- function(path) {
     type <- attr(path, "type") %||% "not_found"
     return(type=="file")
   }
-  file_test("-f", path)
+  utils::file_test("-f", path)
 }
 
 get_icon <- function(x) {
@@ -14,7 +14,7 @@ get_icon <- function(x) {
 
 
 set_list <- function(x, type, content = NA, open = NULL) {
-  out <- setNames(list(content), x)
+  out <- stats::setNames(list(content), x)
   attr(out, "type") <- type
   if(type=="folder") {
     attr(out, "open") <- open
