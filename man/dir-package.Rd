@@ -4,9 +4,9 @@
 \name{dir-package}
 \alias{dir}
 \alias{dir-package}
-\title{dir: Make HTML directory listing}
+\title{dir: Interactive directory listing}
 \description{
-Makes it easier to make a pretty directory listing with collapsible folders.
+A HTML widget for pretty directory listing with collapsible folders.
 }
 \seealso{
 Useful links:
