@@ -62,6 +62,7 @@ HTMLWidgets.widget({
 
         	  // now add a slideToggle to the <a> we just added
         	  folderAndName.find("a").click(function(e) {
+        	    $(this).children("i").toggleClass("fa-folder fa-folder-open");
         	    $(this).siblings("ul").slideToggle("slow");
         	    e.preventDefault();
         	  });
