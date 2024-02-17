@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   demo: demo.html
-last_built: 2024-02-17T06:20Z
+last_built: 2024-02-17T06:29Z
 urls:
   reference: https://dir.emitanaka.org=/reference
   article: https://dir.emitanaka.org=/articles
