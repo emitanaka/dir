@@ -32,8 +32,11 @@
 
 .directory  ul {
     padding-left: 5px;
-    list-style: none;
+    list-style: none!important;
+    padding-inline-start: 0px;
+    margin-left: 0px!important;
 }
+
 
  .directory   li {
    margin: 0;
