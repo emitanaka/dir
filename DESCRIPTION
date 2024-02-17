@@ -1,5 +1,5 @@
 Package: dir
-Title: Make HTML directory listing
+Title: Interactive directory listing
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emi",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre", "cph"),
            email = "dr.emi.tanaka@gmail.com",
            comment = c(ORCID = "0000-0002-1455-259X"))
-Description: Makes it easier to make a pretty directory listing with collapsible folders.
+Description: A HTML widget for pretty directory listing with collapsible folders.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
