@@ -1,4 +1,19 @@
 
+
+The `dir` package makes a HTML widget to display a pretty collapsible list of files and folders. This is useful for demonstrating or discussing folder structures.
+
+
+
+## Installation 
+
+```r
+# install.packages("remotes")
+remotes::install_github("emitanaka/dir")
+```
+
+## Usage
+
+
 This package has one simple function:
 
 ```r
