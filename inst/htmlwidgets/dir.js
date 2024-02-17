@@ -67,6 +67,12 @@ HTMLWidgets.widget({
         	    e.preventDefault();
         	  });
 
+            if(!x.open) {
+        	    folderAndName.find("a").each(function() {
+        	      $(this).siblings("ul").slideToggle(0);
+        	    });
+        	  }
+
         });
 
       },

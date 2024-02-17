@@ -40,7 +40,7 @@ listing <- function(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE
   # create widget
   htmlwidgets::createWidget(
     name = 'dir',
-    list(html = out_html, list = out),
+    list(html = out_html, list = out, open = open),
     width = width,
     height = height,
     package = 'dir',
