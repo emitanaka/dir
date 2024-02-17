@@ -1,10 +1,5 @@
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
-#' Test if given path is a file or not.
-#'
-#' @param x A vector of string
-#' @return Returns a logical value indicating whether it is a file or not.
-#' @export
 is_file <- function(path) {
   if(inherits(path, "list") || is.na(path)) {
     type <- attr(path, "type") %||% "not_found"
@@ -17,16 +12,8 @@ get_icon <- function(x) {
   attr(x, "icon")
 }
 
-#' Test if given object is finder class
-#'
-#' @param x An object.
-#' @return A logical value.
-#' @export
-is_listing <- function(x) {
-  inherits(x, "listing")
-}
 
-set_list <- function(x, type, content, open = NULL) {
+set_list <- function(x, type, content = NA, open = NULL) {
   out <- setNames(list(content), x)
   attr(out, "type") <- type
   if(type=="folder") {

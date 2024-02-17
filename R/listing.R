@@ -27,7 +27,6 @@ listing <- function(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE
 
   recurse <- ifelse(isTRUE(recurse), Inf, recurse)
   out <- structure(listing_constructor(path, recurse = recurse, show_hidden = show_hidden, open = open),
-                   recurse = recurse,
                    class = c("list"),
                    src = path)
 
@@ -48,6 +47,60 @@ listing <- function(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE
     elementId = elementId
   )
 }
+
+
+
+
+listing_constructor <- function(x, i = 0, recurse = Inf, show_hidden = FALSE, open = TRUE) {
+  bn <- basename(x)
+  #if(i >= recurse) return(set_list(bn, "folder", NA, open = open))
+  if(is_file(x)) return(set_list(bn, "file"))
+  if(i == recurse) return(set_list(bn, "folder", open = open))
+  content_list <- lapply(dir(x,
+                             include.dirs = TRUE,
+                             full.names = TRUE,
+                             all.files = show_hidden),
+                         function(.x) listing_constructor(.x, i = i + 1, recurse = recurse,
+                                                          show_hidden = show_hidden,
+                                                          open = open))
+  content <- do.call(c, content_list) # but this wipes out the attributes!!
+  # patchy solution to get the attributes back
+  for(i in seq_along(content)) {
+    # need the next two lines because when nesting, names get screwed up
+    original_attrs <- attributes(content_list[[i]])
+    original_attrs$names <- attr(content[[i]], "names")
+    attributes(content[[i]]) <- original_attrs
+  }
+  set_list(bn, "folder", content, open = open)
+}
+
+
+
+
+# @param base Directory path name
+# @param i The level of depth.
+# @param recurse maximum level of depth to go with respective to the `base`.
+html_listing_constructor <- function(listing, i = 0, recurse = Inf, name = NULL) {
+  if(i==0) {
+    name <- name %||% attr(listing, "src")
+    icon <- get_icon(listing)
+    listing <- listing[[1]]
+    attr(listing, "icon") <- icon
+  }
+  if(is_file(listing) || i == recurse) {
+    return(tags$li(get_icon(listing), name))
+  }
+  nms <- names(listing)
+  tags$li(get_icon(listing), name,
+          tags$ul(
+            tagList(lapply(seq_along(listing),
+                           function(j) html_listing_constructor(listing[[j]],
+                                                                i = i + 1,
+                                                                recurse = recurse,
+                                                                name = nms[j])))
+          ))
+}
+
 
 #' Shiny bindings for dir
 #'
@@ -76,57 +129,5 @@ renderDir <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, dirOutput, env, quoted = TRUE)
 }
-
-
-
-
-listing_constructor <- function(x, i = 0, recurse = Inf, show_hidden = FALSE, open = TRUE) {
-  bn <- basename(x)
-  #if(i >= recurse) return(set_list(bn, "folder", NA, open = open))
-  if(is_file(x)) return(set_list(bn, "file", NA))
-  if(i == recurse) return(set_list(bn, "folder", NA, open = open))
-  content_list <- lapply(dir(x,
-                             include.dirs = TRUE,
-                             full.names = TRUE,
-                             all.files = show_hidden),
-                    function(.x) listing_constructor(.x, i = i + 1, recurse = recurse,
-                                                         show_hidden = show_hidden,
-                                                         open = open))
-  content <- do.call(c, content_list) # but this wipes out the attributes!!
-  # patchy solution to get the attributes back
-  for(i in seq_along(content)) {
-    # need the next two lines because when nesting, names get screwed up
-    original_attrs <- attributes(content_list[[i]])
-    original_attrs$names <- attr(content[[i]], "names")
-    attributes(content[[i]]) <- original_attrs
-  }
-  set_list(bn, "folder", content, open = open)
-}
-
-
-
-
-# @param base Directory path name
-# @param i The level of depth.
-# @param recurse maximum level of depth to go with respective to the `base`.
-html_listing_constructor <- function(listing, i = 0, recurse = Inf, name = NULL) {
-  if(i==0 && is_listing(listing)) {
-    name <- name %||% attr(listing, "src")
-    listing <- listing[[1]]
-  }
-  if(is_file(listing) || i == recurse) {
-    return(tags$li(get_icon(listing), name))
-  }
-  nms <- names(listing)
-  tags$li(get_icon(listing), name,
-          tags$ul(
-            tagList(lapply(seq_along(listing),
-                           function(j) html_listing_constructor(listing[[j]],
-                                                                i = i + 1,
-                                                                recurse = recurse,
-                                                                name = nms[j])))
-          ))
-}
-
 
 
