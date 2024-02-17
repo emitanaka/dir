@@ -18,6 +18,8 @@ Imports:
     htmltools,
     htmlwidgets
 Suggests:
-    knitr
+    knitr,
+    rmarkdown
 URL: https://emitanaka.org/dir/, https://github.com/emitanaka/dir
 BugReports: https://github.com/emitanaka/dir/issues
+VignetteBuilder: knitr

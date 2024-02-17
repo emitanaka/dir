@@ -1,0 +1,32 @@
+---
+title: "demo"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+Click on the folder to close or collapse.
+
+```{r setup}
+library(dir)
+# default path is current directory
+listing(height = "120px")
+```
+
+You can specify the path to show along with the depth of the files/folders to show:
+
+```{r}
+listing(path = "../inst", recurse = 3, height = "250px")
+```
+
+

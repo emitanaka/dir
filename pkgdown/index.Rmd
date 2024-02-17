@@ -1,7 +1,0 @@
-
-
-```{r}
-dir::listing()
-dir::listing(recurse = 1)
-dir::listing(recurse = 2)
-```
