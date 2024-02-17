@@ -1,5 +1,5 @@
 Package: dir
-Title: Interactive directory listing
+Title: Interactive Directory Listing
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emi",
