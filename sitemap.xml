@@ -22,6 +22,9 @@
     <loc>https://dir.emitanaka.org=/reference/dir-package.html</loc>
   </url>
   <url>
+    <loc>https://dir.emitanaka.org=/reference/dir-shiny.html</loc>
+  </url>
+  <url>
     <loc>https://dir.emitanaka.org=/reference/index.html</loc>
   </url>
   <url>
@@ -32,8 +35,5 @@
   </url>
   <url>
     <loc>https://dir.emitanaka.org=/reference/listing.html</loc>
-  </url>
-  <url>
-    <loc>https://dir.emitanaka.org=/reference/pipe.html</loc>
   </url>
 </urlset>

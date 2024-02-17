@@ -63,7 +63,15 @@ for HTML presentations.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">listing</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span>, show_hidden <span class="op">=</span> <span class="cn">FALSE</span>, open <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">listing</span><span class="op">(</span></span>
+<span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  recurse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  show_hidden <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  open <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  width <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  height <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  elementId <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -82,6 +90,16 @@ for HTML presentations.</p>
 
 <dt>open</dt>
 <dd><p>Whether the folders should be open by default.</p></dd>
+
+
+<dt>width, height</dt>
+<dd><p>Must be a valid CSS unit (like <code>'100%'</code>,
+<code>'400px'</code>, <code>'auto'</code>) or a number, which will be coerced to a
+string and have <code>'px'</code> appended.</p></dd>
+
+
+<dt>elementId</dt>
+<dd><p>The element ID.</p></dd>
 
 </dl></div>
     <div id="value">
