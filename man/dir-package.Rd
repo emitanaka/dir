@@ -4,7 +4,7 @@
 \name{dir-package}
 \alias{dir}
 \alias{dir-package}
-\title{dir: Interactive directory listing}
+\title{dir: Interactive Directory Listing}
 \description{
 A HTML widget for pretty directory listing with collapsible folders.
 }
