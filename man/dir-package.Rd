@@ -11,7 +11,7 @@ Makes it easier to make a pretty directory listing with collapsible folders.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://dir.emitanaka.org}
+  \item \url{https://emitanaka.org/dir/}
   \item \url{https://github.com/emitanaka/dir}
   \item Report bugs at \url{https://github.com/emitanaka/dir/issues}
 }

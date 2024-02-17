@@ -1,0 +1,9 @@
+dependencies:
+ - name: dir
+   version: 1.0.0
+   src: htmlwidgets/lib/dir-1.0.0
+   script:
+    - jQuery/jquery-3.6.0.min.js
+   stylesheet:
+    - dir.css
+    - fontawesome/css/all.min.css

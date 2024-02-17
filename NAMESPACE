@@ -2,9 +2,13 @@
 
 S3method(print,listing)
 export("%>%")
+export(dirOutput)
 export(is_file)
 export(is_listing)
 export(listing)
+export(listingw)
+export(renderDir)
+import(htmlwidgets)
 importFrom(htmltools,tagList)
 importFrom(htmltools,tags)
 importFrom(magrittr,"%>%")

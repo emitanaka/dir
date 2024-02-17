@@ -4,7 +4,15 @@
 \alias{listing}
 \title{Directory listing}
 \usage{
-listing(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE)
+listing(
+  path = ".",
+  recurse = TRUE,
+  show_hidden = FALSE,
+  open = TRUE,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{path}{A path.}
@@ -14,6 +22,12 @@ listing(path = ".", recurse = TRUE, show_hidden = FALSE, open = TRUE)
 \item{show_hidden}{If \code{TRUE} show hidden files and folders.}
 
 \item{open}{Whether the folders should be open by default.}
+
+\item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
+\code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+string and have \code{'px'} appended.}
+
+\item{elementId}{The element ID.}
 }
 \value{
 A list of files and folders.
