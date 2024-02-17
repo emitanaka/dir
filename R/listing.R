@@ -103,3 +103,30 @@ listing_constructor <- function(x, i = 0, recurse = Inf, show_hidden = FALSE, op
   set_list(bn, "folder", content, open = open)
 }
 
+
+
+
+# @param base Directory path name
+# @param i The level of depth.
+# @param recurse maximum level of depth to go with respective to the `base`.
+html_listing_constructor <- function(listing, i = 0, recurse = Inf, name = NULL) {
+  if(i==0 && is_listing(listing)) {
+    name <- name %||% attr(listing, "src")
+    listing <- listing[[1]]
+  }
+  if(is_file(listing) || i == recurse) {
+    return(tags$li(get_icon(listing), name))
+  }
+  nms <- names(listing)
+  tags$li(get_icon(listing), name,
+          tags$ul(
+            tagList(lapply(seq_along(listing),
+                           function(j) html_listing_constructor(listing[[j]],
+                                                                i = i + 1,
+                                                                recurse = recurse,
+                                                                name = nms[j])))
+          ))
+}
+
+
+

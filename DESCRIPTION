@@ -16,8 +16,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     htmltools,
-    htmlwidgets,
-    magrittr
+    htmlwidgets
 Suggests:
     knitr
 URL: https://emitanaka.org/dir/, https://github.com/emitanaka/dir
