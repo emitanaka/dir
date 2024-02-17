@@ -67,12 +67,14 @@ HTMLWidgets.widget({
         	    e.preventDefault();
         	  });
 
-            if(!x.open) {
-        	    folderAndName.find("a").each(function() {
+        });
+
+        var allFoldersClose = $(".directory-list.directory-close li > ul");
+        allFoldersClose.each(function() {
+          var folderAndNameC = $(this).parent();
+          folderAndNameC.find("a").each(function() {
         	      $(this).siblings("ul").slideToggle(0);
         	    });
-        	  }
-
         });
 
       },
