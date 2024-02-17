@@ -56,7 +56,7 @@ HTMLWidgets.widget({
         	  // then delete it
         	  $(this).remove();
         	  // add an <a> tag to whats left ie. the folder name
-        	  folderAndName.wrapInner("<a href='#' />");
+        	  folderAndName.wrapInner("<a/>");
         	  // then put the inner <ul> back
         	  folderAndName.append(backupOfThisFolder);
 
