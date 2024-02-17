@@ -69,12 +69,9 @@ HTMLWidgets.widget({
 
         });
 
-        var allFoldersClose = $(".directory-list.directory-close li > ul");
+        var allFoldersClose = $(".directory-list.directory-close a");
         allFoldersClose.each(function() {
-          var folderAndNameC = $(this).parent();
-          folderAndNameC.find("a").each(function() {
-        	      $(this).siblings("ul").slideToggle(0);
-        	    });
+          $(this).siblings("ul").slideToggle(0);
         });
 
       },
