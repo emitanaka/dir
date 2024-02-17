@@ -1,0 +1,82 @@
+
+.directory {
+  position: relative;
+  background: white;
+  padding: 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: .85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+}
+
+.directory  span {
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: .4px;
+    color: #a8a8a8;
+  }
+
+.directory  .fa-folder-open, .fa-folder {
+    color: #007bff;
+  }
+
+.directory  .fa-html5 {
+    color: #f21f10;
+  }
+
+.directory a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.directory  ul {
+    padding-left: 5px;
+    list-style: none;
+}
+
+ .directory   li {
+   margin: 0;
+      position: relative;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 15px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.directory li:before {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        width: 10px;
+        height: 1px;
+        margin: auto;
+        content: '';
+        background-color: #666;
+      }
+
+.directory li:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        content: '';
+        background-color: #666;
+      }
+
+.directory li:last-child:after {
+        height: 15px;
+      }
+
+.directory li a {
+      cursor: pointer;
+}
+
+.directory li:hover {
+        text-decoration: none;
+      }
+

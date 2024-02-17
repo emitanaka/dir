@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">dir</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -50,6 +50,18 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/demo.html">demo</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -74,17 +86,12 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div class="section level1">
-<div class="page-header"><h1 id="dir">dir<a class="anchor" aria-label="anchor" href="#dir"></a>
-</h1></div>
-<!-- badges: start -->
 
-<p>Look at the output at <a href="https://emitanaka.org/dir/" class="external-link uri">https://emitanaka.org/dir/</a> for demonstration.</p>
+<p>This package has one simple function:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dir</span><span class="fu">::</span><span class="fu"><a href="reference/listing.html">listing</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">dir</span><span class="fu">::</span><span class="fu"><a href="reference/listing.html">listing</a></span><span class="op">(</span>recurse <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="fu">dir</span><span class="fu">::</span><span class="fu"><a href="reference/listing.html">listing</a></span><span class="op">(</span>recurse <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-</div>
+<code class="sourceCode R"><span><span class="fu">dir</span><span class="fu">::</span><span class="fu"><a href="reference/listing.html">listing</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>This generates a HTML widget with a pretty collapsible directory listing. See demonstration <a href="articles/demo.html">here</a>.</p>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -119,12 +126,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-</ul>
-</div>
+
 
   </div>
 </div>
